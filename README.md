@@ -2,6 +2,8 @@
 
 This code is implementation of our paper **A Robust Dual-debiasing VQA Model based on Counterfactual Causal Effect**. This code is implemented on the basis of [RUBi](https://github.com/cdancette/rubi.bootstrap.pytorch).
 
+## ![model_1](D:\DIRS\深度因果推理学习\dcce-master\model_1.png)
+
 ## Install python environment
 
 We implement expereiments based on [block.bootstrap.pytorch](https://github.com/Cadene/block.bootstrap.pytorch). The installation details are as follows:
@@ -9,17 +11,15 @@ We implement expereiments based on [block.bootstrap.pytorch](https://github.com/
 ```
 conda create --name dcce python=3.7
 conda activate dcce
-git clone --recursive url
+git clone --recursive https://github.com/sxycyck/dcce.git
 cd dcce-master
 pip install -r requirements.txt
 ```
 
 ### Notes
 
-```
-(1) if "no module named 'block.external' " occurs, you can copy folder external to path site-packages/block/external.
-(2) You may need to modify "correct_k = correct[:k].view(-1).float().sum(0, keepdim=True)" to "correct_k = correct[:k].contiguous().view(-1).float().sum(0, keepdim=True)" in site-packages/bootstrap/models/metrics/accuracy.py", line 40.
-```
+if "no module named 'block.external' " occurs, you can copy folder [external](external) to path **site-packages/block/external**.
+
 
 ## Download datasets
 
@@ -45,7 +45,7 @@ data/vqa
 
 ### Train a model
 
-You can train a model by using following commands in directory "dcce-master/"
+You can train a model by using following commands in directory **dcce-master**
 
 ```
 python -m bootstrap.run -o  $CONFIG_FILE
@@ -54,14 +54,14 @@ python -m bootstrap.run -o  $CONFIG_FILE
 The CONFIG_FILE can be loaded options in YAML format. For example, you can train our best model on VQACP v2 by running:
 
 ```
-python -m bootstrap.run -o  options/vqacp2/updn_s_TIE_d_TIE_wd.yaml
+python -m bootstrap.run -o options/vqacp2/updn_s_TIE_d_TIE_wd.yaml
 ```
-
-You also can create a new yaml file to start training procedure. Many options about our experiments are available in options.
 
 After training, the results are saved in **logs/vqacp2/updn\_s\_TIE\_d\_TIE\_wd**.
 
-File **_dcce_val_oe.json** records the accuracy in VQACP v2 validation set by using our methods.
+You also can create a new yaml file to start training procedure. Many options about our experiments are available in [options](options). The language bias include shortcut bias and distribution bias. The way of mitigating bias include TIE and NIE. For instance, if using TIE for mitigating shortcut bias, and NIE for mitigating distribution bias, the configuration file will be [**updn_s_TIE_d_NIE_wd.yaml**](options/vqacp2/updn_s_TIE_d_NIE_wd.yaml) .
+
+File **_dcce_val_oe.json** records the accuracy metrics in VQACP v2 validation set by using our methods.
 
 ### Evaluate a model
 
