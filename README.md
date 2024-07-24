@@ -2,7 +2,9 @@
 
 This code is implementation of our paper **A Robust Dual-debiasing VQA Model based on Counterfactual Causal Effect**. This code is implemented on the basis of [RUBi](https://github.com/cdancette/rubi.bootstrap.pytorch).
 
-## ![model_1](D:\DIRS\深度因果推理学习\dcce-master\model_1.png)
+## 
+
+## ![model](D:\DIRS\深度因果推理学习\dcce-master\model.png)
 
 ## Install python environment
 
@@ -18,7 +20,7 @@ pip install -r requirements.txt
 
 ### Notes
 
-if "no module named 'block.external' " occurs, you can copy folder [external](external) to path **site-packages/block/external**.
+if  `no module named 'block.external' ` occurs, you can copy folder [external](external) to path `site-packages/block/external`.
 
 
 ## Download datasets
@@ -45,7 +47,7 @@ data/vqa
 
 ### Train a model
 
-You can train a model by using following commands in directory **dcce-master**
+You can train a model by using following commands in directory `dcce-master`
 
 ```
 python -m bootstrap.run -o  $CONFIG_FILE
@@ -57,11 +59,11 @@ The CONFIG_FILE can be loaded options in YAML format. For example, you can train
 python -m bootstrap.run -o options/vqacp2/updn_s_TIE_d_TIE_wd.yaml
 ```
 
-After training, the results are saved in **logs/vqacp2/updn\_s\_TIE\_d\_TIE\_wd**.
+After training, the results are saved in `logs/vqacp2/updn\_s\_TIE\_d\_TIE\_wd`.
 
 You also can create a new yaml file to start training procedure. Many options about our experiments are available in [options](options). The language bias include shortcut bias and distribution bias. The way of mitigating bias include TIE and NIE. For instance, if using TIE for mitigating shortcut bias, and NIE for mitigating distribution bias, the configuration file will be [**updn_s_TIE_d_NIE_wd.yaml**](options/vqacp2/updn_s_TIE_d_NIE_wd.yaml) .
 
-File **_dcce_val_oe.json** records the accuracy metrics in VQACP v2 validation set by using our methods.
+File `_dcce_val_oe.json` records the accuracy metrics in VQACP v2 validation set by using our methods.
 
 ### Evaluate a model
 
@@ -81,7 +83,7 @@ python -m bootstrap.run  \\
 --misc.logs_name test
 ```
 
-The test accuracy metrics is written in **test_dcce_val_oe.json**.
+The test accuracy metrics is written in `test_dcce_val_oe.json`.
 
 ### Resume training
 
