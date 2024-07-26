@@ -2,10 +2,6 @@
 
 This code is implementation of our paper **A Robust Dual-debiasing VQA Model based on Counterfactual Causal Effect**. This code is implemented on the basis of [RUBi](https://github.com/cdancette/rubi.bootstrap.pytorch).
 
-## 
-
-## ![model](D:\DIRS\深度因果推理学习\dcce-master\model.png)
-
 ## Install python environment
 
 We implement expereiments based on [block.bootstrap.pytorch](https://github.com/Cadene/block.bootstrap.pytorch). The installation details are as follows:
