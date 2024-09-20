@@ -2,6 +2,8 @@
 
 This code is implementation of our paper **A Robust Dual-debiasing VQA Model based on Counterfactual Causal Effect**. This code is implemented on the basis of [RUBi](https://github.com/cdancette/rubi.bootstrap.pytorch).
 
+## ![model](.\model.png)
+
 ## Install python environment
 
 We implement expereiments based on [block.bootstrap.pytorch](https://github.com/Cadene/block.bootstrap.pytorch). The installation details are as follows:
@@ -66,17 +68,12 @@ File `_dcce_val_oe.json` records the accuracy metrics in VQACP v2 validation set
 For a model trained on VQACP v2, you can evaluate trained model on the validation set using commands:
 
 ```
-python -m bootstrap.run  \\
-
--o options/vqacp2/updn_s_TIE_d_TIE_wd.yaml  \\
-
---exp.resume last \\\
-
---dataset.train_split  ' '  \\\
-
---dataset.eval_split val \\\
-
---misc.logs_name test
+python -m bootstrap.run  \
+-o options/vqacp2/updn_s_TIE_d_TIE_wd.yaml  \
+--exp.resume last \
+--dataset.train_split  ''  \
+--dataset.eval_split val  \
+--misc.logs_name test  
 ```
 
 The test accuracy metrics is written in `test_dcce_val_oe.json`.
